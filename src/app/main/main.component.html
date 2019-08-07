@@ -1,0 +1,35 @@
+<app-header
+  [endpoint]="endpoint"
+  [showOver18]="showOver18"
+  [restLoading]="restLoading"
+  [currentPage]="currentPage"
+  [varSaveSub]="saveSub"
+  [subredditsDefault]="subredditsDefault"
+  [localSubreddits]="localSubreddits"
+  (getRedditPageEvent)="getRedditPage()"
+  (changeEndpoint)="changeEndPoint($event)"
+  (eventChangeOver18)="changeOver18($event)"
+  (eventChangeSaveSub)="changeSaveSub($event)"
+  (eventRemoveAllSubreddit)="removeAllSubreddits()"
+  (changeAfter)="changeAfter($event)"
+  (changeCurrentPage)="changeCurrentPage($event)"
+  (isLoading)="isLoading()"
+></app-header>
+<div class="container-fluid main-container">
+  <app-panel
+    [config]="config"
+    [page]="page"
+    [after]="after"
+    [toTopPage]="toTopPage"
+    [restLoading]="restLoading"
+    [showOver18]="showOver18"
+    [searchPage]="searchPage"
+    [currentPage]="currentPage"
+    (getConfigEvent)="showConfig()"
+    (getRedditPageEvent)="getRedditPage()"
+    (changeEndpoint)="changeEndPoint($event)"
+    (changeAfter)="changeAfter($event)"
+    (changeCurrentPage)="changeCurrentPage($event)"
+    (isLoading)="isLoading()"
+  ></app-panel>
+</div>

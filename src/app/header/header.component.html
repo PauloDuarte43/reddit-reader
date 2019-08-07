@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <span class="navbar-brand">{{ brand }}</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li *ngFor="let sub of subredditsDefault" (click)="changeSubreddit(sub[1])" class="nav-item">
+        <span class="nav-link">{{sub[0]}}</span>
+      </li>
+      <!-- <li *ngFor="let sub of localSubreddits" (click)="changeSubreddit(sub[1])" class="nav-item">
+        <span class="nav-link">{{sub[0]}}</span>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">subreddits</a>
+        <div class="dropdown-menu">
+          <span class="dropdown-item" *ngFor="let sub of localSubreddits" (click)="changeSubreddit(sub[1])" >{{sub[0]}}</span>
+          <div *ngIf='localSubreddits?.length !== 0' class="dropdown-divider"></div>
+          <span *ngIf='localSubreddits?.length !== 0' class="dropdown-item" (click)="cleanAllSubreddit()">Remover todos</span>
+          <span *ngIf='localSubreddits?.length === 0' class="dropdown-item" href="#">Sem subreddits</span>
+        </div>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <div class="form-check">
+        <input (change)="changeOver18()" class="form-check-input" type="checkbox" [checked]="showOver18" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Exibe NSFW?
+        </label>
+      </div>
+      <div class="form-check">
+          <input (change)="saveSub()" class="form-check-input" type="checkbox" [checked]="varSaveSub" id="savesubreddit">
+          <label class="form-check-label" for="savesubreddit">
+            Salvar Sub?
+          </label>
+        </div>
+      <input [disabled]="restLoading" (keyup)="onChangeSubreddit($event)" [value]="endpoint" class="form-control mr-sm-2" placeholder="Subreddit"
+        aria-label="Subreddit">
+      <button [disabled]="restLoading" (click)="openSubreddit()" class="btn btn-outline-success my-2 my-sm-0">Abrir</button>
+    </div>
+  </div>
+</nav>

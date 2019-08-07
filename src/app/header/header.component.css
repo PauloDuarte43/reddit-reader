@@ -1,0 +1,20 @@
+/* .navbar {
+  margin-bottom: 20px;
+} */
+
+.navbar-brand {
+  color: #fff;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.form-check {
+  margin-right: 1em;
+  color: #fff;
+}
+
+#navbarSupportedContent > ul > li.nav-item.dropdown.show > div > span {
+  cursor: pointer;
+}
