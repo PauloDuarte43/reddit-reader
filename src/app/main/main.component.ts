@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   public after: string = 'null';
   public endpoint = 'best';
   public restLoading: boolean = false;
-  public showOver18 = true;
+  public showOver18 = false;
   public saveSub = false;
   public currentPage: number = 1;
   public toTopPage: Subject<boolean> = new Subject();
